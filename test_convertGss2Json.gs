@@ -1,4 +1,4 @@
-function request_doGet()
+function requestDoGet()
 {
   const e = {
     parameter:{

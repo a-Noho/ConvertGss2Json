@@ -8,7 +8,7 @@ function doGet(e) {
 
   if(sheet != null)
   {
-    return convert_sheet_to_json(sheet);
+    return convertSheet2Json(sheet);
   }
   else
   {

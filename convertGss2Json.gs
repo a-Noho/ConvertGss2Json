@@ -1,5 +1,5 @@
 // 定義行は(1, 1)から始まり、Row:1に存在するものとする。
-function generate_table_from(sheet){
+function generateTableFrom(sheet){
   let definitions = sheet.getRange(1, 1, 1, sheet.getRange(1, 1).getNextDataCell(SpreadsheetApp.Direction.NEXT).getColumn()).getValues()[0];
   let dataValues = sheet.getRange(2, 1, sheet.getMaxRows(), definitions.length).getValues();
   let dataTable = [];
@@ -10,7 +10,7 @@ function generate_table_from(sheet){
   return [definitions, dataTable];
 }
 
-function generate_json_from(definitions, dataTable){
+function generateJsonFrom(definitions, dataTable){
   let jsonArray = [];
   for(let row = 0; row < dataTable.length; row++)
   {
@@ -26,7 +26,7 @@ function generate_json_from(definitions, dataTable){
   return ContentService.createTextOutput(JSON.stringify(jsonArray)).setMimeType(ContentService.MimeType.JSON);
 }
 
-function convert_sheet_to_json(sheet){
-  let result = generate_table_from(sheet);
-  return generate_json_from(result[0], result[1]);
+function convertSheet2Json(sheet){
+  let result = generateTableFrom(sheet);
+  return generateJsonFrom(result[0], result[1]);
 }
